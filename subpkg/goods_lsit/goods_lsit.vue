@@ -79,7 +79,6 @@ export default {
 			// 2. 重新发起请求
 			this.getDetailList(() => {
 				uni.stopPullDownRefresh();
-				console.log('---------');
 			});
 		},
 		//点击商品跳转到详情页
@@ -87,7 +86,6 @@ export default {
 			uni.navigateTo({
 				url: '/subpkg/goods_detail/goods_detail?goods_id=' + goods.goods_id
 			});
-			console.log('=====');
 		}
 	}
 };

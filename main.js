@@ -1,7 +1,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
-
+import store from '@/store/index.js' // 引入vuex
 //网络请求和loading效果的引入和使用
 import {
 	$http
@@ -29,11 +29,13 @@ uni.$showMsg = function(title = '数据加载失败！', duration = 1500) {
 }
 
 Vue.config.productionTip = false
+Vue.prototype.$store = store
 
 App.mpType = 'app'
 
 const app = new Vue({
-	...App
+	...App,
+	store
 })
 app.$mount()
 // #endif

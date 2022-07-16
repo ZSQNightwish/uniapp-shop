@@ -75,7 +75,7 @@ export default {
 		}
 	},
 	onLoad() {
-		this.history = JSON.parse(uni.getStorageSync('keywords') || '[]');
+		this.history = JSON.parse(uni.getStorageSync('keywords'));
 	}
 };
 </script>

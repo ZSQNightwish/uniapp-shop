@@ -29,6 +29,7 @@
 
 <script>
 import search from '../../components/search/search.vue';
+
 export default {
 	data() {
 		return {
