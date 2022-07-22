@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<my-address></my-address>
 		<view class="cart-title">
 			<!-- 购物车的图标 -->
 			<uni-icons type="shop" size="18"></uni-icons>
@@ -34,20 +35,27 @@
 
 <script>
 import mixin from '@/mixin/mixin.js';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
+
 export default {
 	mixins: [mixin],
 	data() {
 		return {};
 	},
 	computed: {
-		...mapState(['carList']),
-		totalPrice() {}
+		...mapState(['carList', 'address']),
+		...mapMutations(['changeRadio'])
 	},
 	methods: {
 		radioChange(goods) {
 			console.log(goods);
-			this.$store.commit('changeRadio', this.goods);
+			this.$store.commit('changeRadio', {
+				// 商品的 Id
+				goods_id: this.goods.goods_id,
+				// 商品最新的勾选状态
+				goods_state: !this.goods.goods_state
+			});
+			this.$store.commit('saveAddress');
 		}
 	}
 };
